@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using Nindo.Net;
 using Nindo.Net.Models.Enums;
 using Xunit;
 
@@ -442,7 +441,7 @@ namespace Nindo.Net.Tests
             NindoClient client = new NindoClient();
 
             //Act
-            var result = await client.GetCouponsWithOffsetAsync(i);
+            var result = await client.GetCouponsAsync(i);
 
             //Assert
             Assert.NotNull(result);

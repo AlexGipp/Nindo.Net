@@ -109,11 +109,8 @@ namespace Nindo.Net
 
         #region Coupons
 
-        [Get("/coupons/")]
-        Task<Coupons> GetCouponsAsync();
-
         [Get("/coupons/?offset={offset}")]
-        Task<Coupons> GetCouponsWithOffsetAsync(int offset = 0);
+        Task<Coupons> GetCouponsAsync(int offset = 0);
 
         [Get("/coupons/branches")]
         Task<string[]> GetCouponBranchesAsync();
@@ -121,11 +118,11 @@ namespace Nindo.Net
         [Get("/coupons/brands")]
         Task<CouponBrands[]> GetCouponBrandsAsync();
 
-        [Get("/coupons/by/{category}")]
-        Task<Coupons> GetCouponsByCategoryAsync(string category);
+        [Get("/coupons/by/{category}/?offset={offset}")]
+        Task<Coupons> GetCouponsByCategoryAsync(string category, int offset = 0);
 
-        [Get("/coupons/for/{branch}")]
-        Task<Coupons> GetCouponsByBranchAsync(string branch);
+        [Get("/coupons/for/{branch}/?offset={offset}")]
+        Task<Coupons> GetCouponsByBranchAsync(string branch, int offset = 0);
 
         #endregion
     }

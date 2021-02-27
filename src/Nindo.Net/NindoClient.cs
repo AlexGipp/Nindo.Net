@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -196,14 +193,9 @@ namespace Nindo.Net
             return _service.GetUserPostsAsync(platform, userId);
         }
 
-        public Task<Coupons> GetCouponsAsync()
+        public Task<Coupons> GetCouponsAsync(int offset = 0)
         {
-            return _service.GetCouponsAsync();
-        }
-
-        public Task<Coupons> GetCouponsWithOffsetAsync(int offset = 0)
-        {
-            return _service.GetCouponsWithOffsetAsync(offset);
+            return _service.GetCouponsAsync(offset);
         }
 
         public Task<string[]> GetCouponBranchesAsync()
@@ -216,20 +208,20 @@ namespace Nindo.Net
             return _service.GetCouponBrandsAsync();
         }
 
-        public Task<Coupons> GetCouponsByCategoryAsync(string category)
+        public Task<Coupons> GetCouponsByCategoryAsync(string category, int offset = 0)
         {
             if (string.IsNullOrEmpty(category))
                 throw new ArgumentNullException(nameof(category));
 
-            return _service.GetCouponsByCategoryAsync(category);
+            return _service.GetCouponsByCategoryAsync(category, offset);
         }
 
-        public Task<Coupons> GetCouponsByBranchAsync(string branch)
+        public Task<Coupons> GetCouponsByBranchAsync(string branch, int offset = 0)
         {
             if (string.IsNullOrEmpty(branch))
                 throw new ArgumentNullException(nameof(branch));
 
-            return _service.GetCouponsByBranchAsync(branch);
+            return _service.GetCouponsByBranchAsync(branch, offset);
         }
     }
 }

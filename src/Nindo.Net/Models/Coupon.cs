@@ -31,10 +31,10 @@ namespace Nindo.Net.Models
         [JsonProperty("id")]
         public string Id { get; set; }
 
-        [JsonProperty("artist")]
+        [JsonProperty("_artist")]
         public CouponArtist Artist { get; set; }
 
-        [JsonProperty("brand")]
+        [JsonProperty("_brand")]
         public CouponBrand Brand { get; set; }
     }
 }
